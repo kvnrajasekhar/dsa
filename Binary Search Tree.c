@@ -28,7 +28,7 @@ struct node* insert(struct node *root, int x)
         root->left_child = insert(root->left_child,x);
     return root;
 }
-//seatching an element is present in tree or not
+//searching an element is present in tree or not
 struct node* search(struct node *root, int x)
 {  //if element is found return root
     if(root==NULL || root->data==x)
@@ -51,7 +51,7 @@ struct node *new_insert(struct node *root,int x,int r)
         new_insert(root,ele,r);
     }
      else
-    { // inserting newelement into the tree
+    { // inserting new element into the tree
        if(root==NULL)
         {
             return new_node(x);
@@ -82,7 +82,7 @@ struct node* delete(struct node *root, int x)
         root->right_child = delete(root->right_child, x);
     else if(x<root->data)//if given element is lessthan rootelement
         root->left_child = delete(root->left_child, x);
-    else//if given element is equaal to root element
+    else//if given element is equal to root element
     {
         if(root->left_child==NULL && root->right_child==NULL)
         { //if element is leaf child
@@ -100,7 +100,7 @@ struct node* delete(struct node *root, int x)
             return temp;
         }
         else//if the element have two children
-        {  //finding right subtree inorder sucessor and assaigning it to temp variable
+        {  //finding right subtree inorder sucessor and assigning it to temp variable
             struct node *temp = inorderrstree(root->right_child);
             root->data = temp->data;
             //deleting given element and replacing the temp data
